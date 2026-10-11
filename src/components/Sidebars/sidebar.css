@@ -1,0 +1,312 @@
+/* ---------- sidebar ---------- */
+.sidebar {
+  background: #262626;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden auto;
+  scrollbar-width: none;
+  color: #e3e5e8;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none
+}
+
+.chrome {
+  height: 46px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px
+}
+
+.chrome button,
+.chrome label,
+.sidebar-open,
+.header-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  color: #aaa;
+  cursor: pointer
+}
+
+.chrome button:hover,
+.chrome label:hover,
+.sidebar-open:hover,
+.header-search:hover {
+  background: #ffffff12;
+  color: #eee
+}
+
+.sidebar-open {
+  margin-right: 4px
+}
+
+.header-search {
+  margin-right: 10px
+}
+
+/* ---------- minimize / restore sidebar (checkbox hack, no JS) ---------- */
+.sb-cb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
+  pointer-events: none
+}
+
+.sidebar-open,
+.header-search {
+  display: none
+}
+
+.sb-cb:checked~.main .sidebar-open,
+.sb-cb:checked~.main .header-search {
+  display: flex
+}
+
+.app {
+  transition: grid-template-columns 260ms ease
+}
+
+.app:has(.sb-cb:checked) {
+  grid-template-columns: 0px minmax(0, 1fr)
+}
+
+.sidebar {
+  width: 281px;
+  transition: transform 260ms ease, opacity 180ms ease
+}
+
+.sb-cb:checked~.sidebar {
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 260ms ease, opacity 180ms ease, visibility 0s linear 260ms;
+}
+
+.sb-cb:checked~.main {
+  border-radius: 0
+}
+
+.sb-cb:focus-visible~.sidebar .sidebar-close,
+.sb-cb:focus-visible~.main .sidebar-open {
+  outline: 2px solid #aaa;
+  outline-offset: 2px
+}
+
+.sb-backdrop {
+  display: none
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 30.5px;
+  margin: 0 6px;
+  padding: 0 10px 0 8.5px;
+  border-radius: 8px;
+  color: #e3e5e8;
+  white-space: nowrap;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, .07)
+}
+
+.row .t {
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.row.pin {
+  height: 31px;
+  color: #e3e3e5
+}
+
+.row.pin .ic {
+  color: #848792
+}
+
+.row.proj {
+  height: 31.5px;
+  padding-top: 1px;
+  color: #b9babd
+}
+
+.row.proj .ic {
+  color: #b2b3b8
+}
+
+.nav .row .ic {
+  color: #dcdee1
+}
+
+.l-pinned {
+  margin-top: 13px
+}
+
+.l-projects {
+  margin-top: 13px
+}
+
+.l-chats {
+  margin-top: 15px
+}
+
+.pins {
+  margin-top: 2px
+}
+
+.projs {
+  margin-top: 1.25px
+}
+
+.empty {
+  height: 28px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  padding: 1px 16px 0 15.5px;
+  color: #595f73
+}
+
+.settings {
+  margin-top: auto;
+  margin-bottom: 7px;
+  height: 30px;
+  padding: 1px 10px 0 8.5px;
+  color: #fcfcfc
+}
+
+.settings .ic {
+  color: #fcfcfc
+}
+
+/* ---------- collapsible sidebar sections (checkbox hack, no JS) ---------- */
+.sidebar-section {
+  flex: none;
+  position: relative
+}
+
+.sec-cb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin: 0;
+  pointer-events: none
+}
+
+.label {
+  height: 28px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 0 13.7px 0 15.5px;
+  color: #7b7f89;
+}
+
+.section-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  text-align: left;
+  cursor: pointer;
+  user-select: none
+}
+
+.section-toggle .chev {
+  width: 8px;
+  transition: transform 200ms ease
+}
+
+.sec-cb:not(:checked)~.label .chev {
+  transform: rotate(-90deg)
+}
+
+.sec-cb:focus-visible~.label .section-toggle {
+  outline: 2px solid #aaa;
+  outline-offset: 2px;
+  border-radius: 4px
+}
+
+.label .sp {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  color: #94969b;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease
+}
+
+.sidebar-section:hover .sp,
+.sidebar-section:focus-within .sp {
+  opacity: 1;
+  pointer-events: auto
+}
+
+.label .sp button,
+.label .sp .filter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 24px;
+  border-radius: 5px;
+  color: #94969b
+}
+
+.label .sp .filter-icon {
+  pointer-events: none
+}
+
+.label .sp button:hover {
+  color: #eee;
+  background: #ffffff12
+}
+
+@media(hover:none) {
+  .label .sp {
+    opacity: 1;
+    pointer-events: auto
+  }
+}
+
+.section-body {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows 220ms ease, opacity 180ms ease
+}
+
+.section-inner {
+  min-height: 0;
+  overflow: hidden
+}
+
+.sec-cb:not(:checked)~.section-body {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 220ms ease, opacity 180ms ease, visibility 0s linear 220ms;
+}

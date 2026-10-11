@@ -1,0 +1,111 @@
+.dock {
+  background: #181818;
+  border-radius: 22px
+}
+
+.composer {
+  position: relative;
+  height: 95px;
+  background: #262626;
+  border-radius: 22px
+}
+
+.composer textarea {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12.4px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  resize: none;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fcfcfc;
+  caret-color: #fcfcfc;
+}
+
+.composer textarea::placeholder {
+  color: #5c5c5c;
+  opacity: 1
+}
+
+.tools {
+  position: absolute;
+  left: 0;
+  right: 8px;
+  top: 60px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding-left: 13.5px;
+  color: #919191;
+}
+
+.tools button {
+  display: inline-flex;
+  align-items: center;
+  color: #919191;
+  white-space: nowrap
+}
+
+.tools button:hover {
+  color: #d0d0d0
+}
+
+.tools .plus .ic {
+  stroke-width: 1.4
+}
+
+.tools .grow {
+  flex: 1
+}
+
+.tools .mic {
+  margin-left: 25.5px;
+  color: #8a8a8a
+}
+
+.tools .send {
+  margin-left: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #919191;
+  color: #262626;
+  justify-content: center;
+}
+
+.tools .send:hover {
+  background: #a3a3a3;
+  color: #262626
+}
+
+.tools .send .ic {
+  stroke-width: 1.6
+}
+
+.ctx {
+  height: 43.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1.6px 13px 0 7px;
+  color: #8a8a8a
+}
+
+.static-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 29px;
+  padding: 0 7px;
+  color: #8a8a8a;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none
+}
