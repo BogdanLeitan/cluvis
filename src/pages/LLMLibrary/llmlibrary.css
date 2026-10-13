@@ -1,0 +1,510 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html,
+body,
+#root {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    background: #111;
+    color: #fcfcfc;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer
+}
+
+svg.ic {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+svg.menu-logo {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    stroke: none
+}
+
+/* ---------- main panel ---------- */
+.main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    background: #111;
+    border-radius: 12px 0 0 12px;
+    overflow: hidden;
+}
+
+.top {
+    height: 45px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    padding: 0 26.5px 0 15.5px
+}
+
+.top h1 {
+    position: relative;
+    top: .5px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #fcfcfc
+}
+
+/* ---------- LLMs page ---------- */
+.llm-view {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: 32px 24px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.llm-inner {
+    position: relative;
+    width: 100%;
+    max-width: 728px
+}
+
+.llm-title {
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: -.2px;
+    color: #fcfcfc
+}
+
+.llm-sub {
+    margin: 4px 0 18px;
+    color: #8a8a8a
+}
+
+/* hidden radio inputs that drive the CSS-only filters/tabs */
+.llm-inner>input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0
+}
+
+.llm-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 14px;
+    background: #262626;
+    color: #919191
+}
+
+.llm-search:focus-within {
+    box-shadow: 0 0 0 1px #ffffff2e
+}
+
+.llm-search input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fcfcfc;
+    font: inherit;
+    font-size: 14px;
+    -webkit-appearance: none;
+    appearance: none
+}
+
+.llm-search input::placeholder {
+    color: #5c5c5c;
+    opacity: 1
+}
+
+.llm-search input::-webkit-search-cancel-button {
+    -webkit-appearance: none
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0 4px
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 28px;
+    padding: 0 11px;
+    border-radius: 14px;
+    background: #1a1a1a;
+    border: 1px solid #ffffff10;
+    color: #b4b4b4;
+    cursor: pointer;
+    user-select: none
+}
+
+.chip:hover {
+    color: #fff;
+    border-color: #ffffff22
+}
+
+.chip svg.menu-logo {
+    width: 14px;
+    height: 14px
+}
+
+.llm-tabs {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+    border-bottom: 1px solid #ffffff0d
+}
+
+.llm-tabs label {
+    padding: 8px 0;
+    margin-bottom: -1px;
+    color: #8a8a8a;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    user-select: none
+}
+
+.llm-tabs label:hover {
+    color: #cfcfcf
+}
+
+.llm-tabs .count {
+    margin-left: 5px;
+    color: #8a8a8a
+}
+
+.llm-status {
+    min-height: 16px;
+    margin: 12px 2px 8px;
+    font-size: 12px;
+    color: #8a8a8a
+}
+
+.llm-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.llm-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #1a1a1a;
+    border: 1px solid #ffffff0d;
+    overflow: hidden
+}
+
+.llm-row:hover {
+    background: #1e1e1e
+}
+
+.llm-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #262626;
+    color: #8a8a8a
+}
+
+.llm-tile svg.menu-logo {
+    width: 22px;
+    height: 22px
+}
+
+.llm-info {
+    flex: 1;
+    min-width: 0
+}
+
+.llm-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f2f2f2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.llm-meta {
+    margin-top: 1px;
+    font-size: 12px;
+    color: #8a8a8a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.llm-desc {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #a6a6a6
+}
+
+.llm-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: none
+}
+
+.dl-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 100px;
+    height: 30px;
+    padding: 0 12px;
+    border-radius: 15px;
+    background: #e9e9e9;
+    color: #111;
+    font-weight: 500;
+    white-space: nowrap
+}
+
+.dl-btn:hover {
+    background: #fff
+}
+
+/* ---------- CSS-only tabs ---------- */
+.llm-inner:has(#tab-discover:checked) label[for="tab-discover"],
+.llm-inner:has(#tab-downloaded:checked) label[for="tab-downloaded"],
+.llm-inner:has(#tab-location:checked) label[for="tab-location"] {
+    color: #fcfcfc;
+    border-bottom-color: #fcfcfc
+}
+
+.status-downloaded {
+    display: none
+}
+
+.llm-inner:has(#tab-downloaded:checked) .status-discover {
+    display: none
+}
+
+.llm-inner:has(#tab-downloaded:checked) .status-downloaded {
+    display: block
+}
+
+.llm-inner:has(#tab-downloaded:checked) .llm-list {
+    display: none
+}
+
+/* ---------- model location ---------- */
+.llm-location {
+    display: none;
+    margin-top: 18px
+}
+
+.location-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 58px;
+    padding: 10px 12px;
+    border: 1px solid #ffffff08;
+    border-radius: 10px;
+    background: #202020
+}
+
+.location-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    background: #292929;
+    color: #b9b9b9
+}
+
+.location-info {
+    flex: 1;
+    min-width: 0
+}
+
+.location-title {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #fcfcfc
+}
+
+.location-path {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 17px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    outline: 0;
+    background: transparent;
+    color: #b4b4b4;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    line-height: 17px
+}
+
+.location-path:focus {
+    background: #292929;
+    box-shadow: 0 0 0 1px #ffffff28;
+    color: #fcfcfc
+}
+
+.location-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: none;
+    align-self: flex-start
+}
+
+.location-change,
+.location-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    border-radius: 9px;
+    background: #282828;
+    color: #fcfcfc;
+    cursor: pointer
+}
+
+.location-change {
+    padding: 0 13px;
+    font-size: 12px
+}
+
+.location-more {
+    width: 28px;
+    font-size: 16px;
+    line-height: 1
+}
+
+.location-change:hover,
+.location-more:hover {
+    background: #303030
+}
+
+.llm-inner:has(#tab-location:checked) .llm-location {
+    display: block
+}
+
+.llm-inner:has(#tab-location:checked) .llm-status,
+.llm-inner:has(#tab-location:checked) .llm-list {
+    display: none
+}
+
+/* ---------- CSS-only provider filter ---------- */
+.llm-inner:has(#p-all:checked) label[for="p-all"],
+.llm-inner:has(#p-deepseek:checked) label[for="p-deepseek"],
+.llm-inner:has(#p-qwen:checked) label[for="p-qwen"],
+.llm-inner:has(#p-kimi:checked) label[for="p-kimi"],
+.llm-inner:has(#p-zai:checked) label[for="p-zai"] {
+    background: #2f2f2f;
+    color: #fff;
+    border-color: #ffffff28
+}
+
+.llm-inner:has(#p-deepseek:checked) .llm-row:not([data-p="deepseek"]),
+.llm-inner:has(#p-qwen:checked) .llm-row:not([data-p="qwen"]),
+.llm-inner:has(#p-kimi:checked) .llm-row:not([data-p="kimi"]),
+.llm-inner:has(#p-zai:checked) .llm-row:not([data-p="zai"]) {
+    display: none
+}
+
+/* keyboard focus */
+.llm-inner:has(#p-all:focus-visible) label[for="p-all"],
+.llm-inner:has(#p-deepseek:focus-visible) label[for="p-deepseek"],
+.llm-inner:has(#p-qwen:focus-visible) label[for="p-qwen"],
+.llm-inner:has(#p-kimi:focus-visible) label[for="p-kimi"],
+.llm-inner:has(#p-zai:focus-visible) label[for="p-zai"],
+.llm-inner:has(#tab-discover:focus-visible) label[for="tab-discover"],
+.llm-inner:has(#tab-downloaded:focus-visible) label[for="tab-downloaded"],
+.llm-inner:has(#tab-location:focus-visible) label[for="tab-location"] {
+    outline: 2px solid #aaa;
+    outline-offset: 2px
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #aaa;
+    outline-offset: 2px
+}
+
+/* ---------- small screens ---------- */
+@media (max-width:760px) {
+    .main {
+        border-radius: 0
+    }
+}
+
+@media (max-width:520px) {
+    .llm-view {
+        padding: 20px 14px 40px
+    }
+
+    .llm-desc {
+        display: none
+    }
+
+    .dl-btn {
+        min-width: 0
+    }
+}

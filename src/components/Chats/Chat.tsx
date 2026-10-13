@@ -1,6 +1,6 @@
-import "./newchat.css"
+import "./chat.css"
 
-function NewChat() {
+function Chat() {
   return (
     <>
       <div className="dock">
@@ -12,7 +12,7 @@ function NewChat() {
         <label className="backdrop bd-perm" htmlFor="menu-perm" aria-hidden="true"></label>
 
         <div className="composer">
-          <textarea placeholder="Ask Codex anything. @ to use plugins or use files" aria-label="Message" />
+          <textarea placeholder="Ask anything to your local LLM" aria-label="Message" />
           <div className="tools">
             <button type="button" className="plus" aria-label="Add"><svg className="ic"><use href="#i-plus" /></svg></button>
             <span className="grow"></span>
@@ -44,7 +44,7 @@ function NewChat() {
 
                 {/* Effort */}
                 <div className="sub-wrap">
-                  <div className="menu-option submenu-trigger" tabIndex="0" role="menuitem" aria-haspopup="menu">
+                  <div className="menu-option submenu-trigger" tabIndex={0} role="menuitem" aria-haspopup="menu">
                     <span className="menu-option-text">Effort</span>
                     <span className="submenu-value"><span className="te te-low">Low</span><span className="te te-med">Medium</span><span className="te te-high">High</span><span className="te te-xhigh">Extra High</span><span className="te te-offs">Off</span></span>
                     <svg className="submenu-chevron" aria-hidden="true"><use href="#i-subchev" /></svg>
@@ -82,7 +82,7 @@ function NewChat() {
 
                 {/* Capabilities */}
                 <div className="sub-wrap">
-                  <div className="menu-option submenu-trigger" tabIndex="0" role="menuitem" aria-haspopup="menu">
+                  <div className="menu-option submenu-trigger" tabIndex={0} role="menuitem" aria-haspopup="menu">
                     <span className="menu-option-text">Capabilities</span>
                     <span className="submenu-value"><span className="c0">0/2</span><span className="c1">1/2</span><span className="c2">2/2</span></span>
                     <svg className="submenu-chevron" aria-hidden="true"><use href="#i-subchev" /></svg>
@@ -132,4 +132,4 @@ function NewChat() {
   );
 }
 
-export default NewChat
+export default Chat
